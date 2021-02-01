@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "commonjs",
+    "target": "es2015",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "rootDirs": ["src","test"],
+    "experimentalDecorators": true, 
+    "emitDecoratorMetadata": true,
+    "baseUrl": "src",
+    "watch": true,
+    "paths": {
+      "@/*": ["*"],
+      "@/test/*": ["tests/*"],
+    }
+  },
+  "include": ["src","test"],
+  "exclude": ["dist"]
+}
