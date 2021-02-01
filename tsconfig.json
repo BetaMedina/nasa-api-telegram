@@ -9,7 +9,7 @@
     "experimentalDecorators": true, 
     "emitDecoratorMetadata": true,
     "baseUrl": "src",
-    "watch": true,
+    "watch": false,
     "paths": {
       "@/*": ["*"],
       "@/test/*": ["test/*"],
