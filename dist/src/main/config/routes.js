@@ -27,18 +27,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const fast_glob_1 = __importDefault(require("fast-glob"));
+const fs_1 = require("fs");
 exports.default = (app) => {
     const router = express_1.Router();
     app.use(router);
     app.use('/api', router);
-    fast_glob_1.default.sync('**/src/main/routes/**/**routes.ts').map((file) => __awaiter(void 0, void 0, void 0, function* () {
-        (yield Promise.resolve().then(() => __importStar(require(`../../../${file}`)))).default(router);
+    // eslint-disable-next-line node/no-path-concat
+    fs_1.readdirSync(`${__dirname}/../routes`).map((file) => __awaiter(void 0, void 0, void 0, function* () {
+        (yield Promise.resolve().then(() => __importStar(require(`../routes/${file}/${file}-routes`)))).default(router);
     }));
 };
 //# sourceMappingURL=routes.js.map
