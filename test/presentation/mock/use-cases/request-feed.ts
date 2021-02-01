@@ -32,8 +32,10 @@ export class MakeRequestStub implements IRequestFeed {
         kilometers_per_second: this.relativeVelocityKm
       },
       estimated_diameter: {
-        estimated_diameter_min: this.estimatedDiameterMin,
-        estimated_diameter_max: this.estimatedDiameterMax
+        kilometers: {
+          estimated_diameter_min: this.estimatedDiameterMin,
+          estimated_diameter_max: this.estimatedDiameterMax
+        }
       } 
     }]
   }

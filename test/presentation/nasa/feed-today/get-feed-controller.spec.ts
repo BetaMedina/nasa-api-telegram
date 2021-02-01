@@ -1,8 +1,6 @@
-import { IFormatNasaToTelegram } from '@/domain/use-cases/format-nasa-to-telegram'
 import { HttpRequest } from '@/presentation/contract'
 import { GetFeedTodayController } from '@/presentation/controller/nasa/feed-today/get-feed-controller'
-import { BadRequestError } from '@/presentation/errors/bad-request'
-import { badRequest, serverError, success } from '@/presentation/helper'
+import { serverError, success } from '@/presentation/helper'
 import { FormatNasaToTelegramStub } from '../../mock/use-cases/format-nasa-to-telegram'
 import { MakeRequestStub } from '../../mock/use-cases/request-feed'
 import { SendToTelegramStub } from '../../mock/use-cases/send-to-telegram'
@@ -63,8 +61,10 @@ describe('GetFeedTodayController', () => {
         kilometers_per_second: requestSut.relativeVelocityKm
       },
       estimated_diameter: {
-        estimated_diameter_min: requestSut.estimatedDiameterMin,
-        estimated_diameter_max: requestSut.estimatedDiameterMax
+        kilometers: {
+          estimated_diameter_min: requestSut.estimatedDiameterMin,
+          estimated_diameter_max: requestSut.estimatedDiameterMax
+        }
       } 
     }]
 

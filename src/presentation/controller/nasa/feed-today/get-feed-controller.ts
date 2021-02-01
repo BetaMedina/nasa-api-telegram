@@ -23,7 +23,6 @@ export class GetFeedTodayController implements Controller {
         } 
 
         const nasaFormatted = await this.formatToTelegram.format(feedToday)
-        return success(nasaFormatted)
 
         await this.sendToTelegram.sendToTelegram({ payload: nasaFormatted, chatId: message.chat.id })
 

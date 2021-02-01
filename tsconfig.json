@@ -12,7 +12,7 @@
     "watch": true,
     "paths": {
       "@/*": ["*"],
-      "@/test/*": ["tests/*"],
+      "@/test/*": ["test/*"],
     }
   },
   "include": ["src","test"],
