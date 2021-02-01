@@ -1,5 +1,5 @@
 import faker from 'faker'
-import { FormatNasaToTelegram } from '@/data/use-cases/nasa-feed/format-to-send-to-telegram'
+import { FormatNasaToTelegram } from '../../../src/data/use-cases/nasa-feed/format-to-send-to-telegram'
 
 const makeSut = () => {
   const sut = new FormatNasaToTelegram()

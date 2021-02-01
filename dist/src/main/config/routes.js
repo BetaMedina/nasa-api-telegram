@@ -18,15 +18,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const fs_1 = require("fs");
@@ -35,8 +26,8 @@ exports.default = (app) => {
     app.use(router);
     app.use('/api', router);
     // eslint-disable-next-line node/no-path-concat
-    fs_1.readdirSync(`${__dirname}/../routes`).map((file) => __awaiter(void 0, void 0, void 0, function* () {
-        (yield Promise.resolve().then(() => __importStar(require(`../routes/${file}/${file}-routes`)))).default(router);
-    }));
+    fs_1.readdirSync(`${__dirname}/../routes`).map(async (file) => {
+        (await Promise.resolve().then(() => __importStar(require(`../routes/${file}/${file}-routes`)))).default(router);
+    });
 };
 //# sourceMappingURL=routes.js.map

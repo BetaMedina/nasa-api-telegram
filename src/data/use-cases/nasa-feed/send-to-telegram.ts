@@ -1,6 +1,6 @@
-import { IPostRequestAdapter } from '@/data/contract/request-adapter/post-request-adapter'
-import { ISendToTelegram } from '@/domain/use-cases/send-telegram-api'
-import { BadRequestError } from '@/presentation/errors/bad-request'
+import { IPostRequestAdapter } from '../../../data/contract/request-adapter/post-request-adapter'
+import { ISendToTelegram } from '../../../domain/use-cases/send-telegram-api'
+import { BadRequestError } from '../../../presentation/errors/bad-request'
 
 import { NASA_FEED } from './enum/nasa-feed.enum'
 

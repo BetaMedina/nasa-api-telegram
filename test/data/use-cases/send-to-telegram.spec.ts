@@ -1,7 +1,7 @@
-import { SendToTelegram } from '@/data/use-cases/nasa-feed/send-to-telegram'
+import { SendToTelegram } from '../../../src/data/use-cases/nasa-feed/send-to-telegram'
 import { IRequestPostAdapter } from '../mock/post-request-adapter'
 import faker from 'faker'
-import { NASA_FEED } from '@/data/use-cases/nasa-feed/enum/nasa-feed.enum'
+import { NASA_FEED } from '../../../src/data/use-cases/nasa-feed/enum/nasa-feed.enum'
 
 const makeSut = () => {
   const requestAdapterStub = new IRequestPostAdapter()

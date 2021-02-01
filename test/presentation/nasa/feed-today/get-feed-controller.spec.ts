@@ -1,11 +1,11 @@
-import { HttpRequest } from '@/presentation/contract'
-import { GetFeedTodayController } from '@/presentation/controller/nasa/feed-today/get-feed-controller'
-import { serverError, success } from '@/presentation/helper'
+import { HttpRequest } from '../../../../src/presentation/contract'
+import { GetFeedTodayController } from '../../../../src/presentation/controller/nasa/feed-today/get-feed-controller'
+import { serverError, success } from '../../../../src/presentation/helper'
 import { FormatNasaToTelegramStub } from '../../mock/use-cases/format-nasa-to-telegram'
 import { MakeRequestStub } from '../../mock/use-cases/request-feed'
 import { SendToTelegramStub } from '../../mock/use-cases/send-to-telegram'
+import { TELEGRAM_ENUM } from '../../../../src/presentation/controller/nasa/feed-today/enum/payload.enum'
 import faker from 'faker'
-import { TELEGRAM_ENUM } from '@/presentation/controller/nasa/feed-today/enum/payload.enum'
 
 const makeSut = () => {
   const requestSut = new MakeRequestStub()

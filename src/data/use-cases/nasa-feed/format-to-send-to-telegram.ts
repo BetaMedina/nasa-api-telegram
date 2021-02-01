@@ -1,5 +1,5 @@
-import { INasaEntity } from '@/domain/entitys/nasa-entity'
-import { IFormatNasaToTelegram } from '@/domain/use-cases/format-nasa-to-telegram'
+import { INasaEntity } from '../../../domain/entitys/nasa-entity'
+import { IFormatNasaToTelegram } from '../../../domain/use-cases/format-nasa-to-telegram'
 
 export class FormatNasaToTelegram implements IFormatNasaToTelegram {
   async format (data:INasaEntity[]):Promise<String[]> {

@@ -1,8 +1,6 @@
-import { IGetRequestAdapter } from '@/data/contract/request-adapter/get-request-adapter'
-import { INasaEntity } from '@/domain/entitys/nasa-entity'
-import { IRequestFeed } from '@/domain/use-cases/request-feed'
-import { BadRequestError } from '@/presentation/errors/bad-request'
-import { badRequest } from '@/presentation/helper'
+import { IGetRequestAdapter } from '../../../data/contract/request-adapter/get-request-adapter'
+import { INasaEntity } from '../../..//domain/entitys/nasa-entity'
+import { IRequestFeed } from '../../../domain/use-cases/request-feed'
 
 import { NASA_FEED } from './enum/nasa-feed.enum'
 

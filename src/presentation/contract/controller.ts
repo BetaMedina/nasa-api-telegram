@@ -1,4 +1,4 @@
-import { HttpResponse } from '@/presentation/contract'
+import { HttpResponse } from '../../presentation/contract'
 import { HttpRequest } from './'
 
 export interface Controller {

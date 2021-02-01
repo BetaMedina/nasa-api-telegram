@@ -1,5 +1,5 @@
-import { INasaEntity } from '@/domain/entitys/nasa-entity'
-import { IFormatNasaToTelegram } from '@/domain/use-cases/format-nasa-to-telegram'
+import { INasaEntity } from '../../../../src/domain/entitys/nasa-entity'
+import { IFormatNasaToTelegram } from '../../../../src/domain/use-cases/format-nasa-to-telegram'
 import faker from 'faker'
 
 export class FormatNasaToTelegramStub implements IFormatNasaToTelegram {

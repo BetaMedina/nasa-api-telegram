@@ -1,5 +1,5 @@
-import { INasaEntity } from '@/domain/entitys/nasa-entity'
-import { IRequestFeed } from '@/domain/use-cases/request-feed'
+import { INasaEntity } from '../../../../src/domain/entitys/nasa-entity'
+import { IRequestFeed } from '../../../../src/domain/use-cases/request-feed'
 import faker from 'faker'
 
 export class MakeRequestStub implements IRequestFeed {

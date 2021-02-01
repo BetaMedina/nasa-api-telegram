@@ -1,4 +1,4 @@
-import { GetFeedToday } from '@/data/use-cases/nasa-feed/get-feed-today'
+import { GetFeedToday } from '../../../src/data/use-cases/nasa-feed/get-feed-today'
 import { MakeRequestAdapterStub } from '../mock/get-request-adapter'
 
 const makeSut = () => {
