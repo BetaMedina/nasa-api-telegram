@@ -9,8 +9,7 @@
     "dev": "ts-node-dev -r tsconfig-paths/register src/main/server.ts",
     "start": "node dist/src/main/server.js",
     "postinstall": "tsc",
-    "watch-ts": "tsc -w",
-    "deploy": "git add . && git commit -m Heroku && git push heroku --set-upstream heroku maste"
+    "watch-ts": "tsc -w"
   },
   "keywords": [],
   "author": "",
