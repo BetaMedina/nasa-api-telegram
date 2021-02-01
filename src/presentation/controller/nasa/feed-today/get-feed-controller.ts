@@ -11,6 +11,7 @@ export class GetFeedTodayController implements Controller {
   async handle (httpRequest:HttpRequest):Promise<HttpResponse> {
     try {
       const { body: { message } } = httpRequest
+      console.log(message)
       if (message.text === TELEGRAM_ENUM.CLIENT_MESSAGE) {
         const feedToday = await this.feed.getFeedToday()
       
@@ -23,7 +24,6 @@ export class GetFeedTodayController implements Controller {
         } 
 
         const nasaFormatted = await this.formatToTelegram.format(feedToday)
-
         await this.sendToTelegram.sendToTelegram({ payload: nasaFormatted, chatId: message.chat.id })
 
         return success('Message has been send')
