@@ -70,27 +70,6 @@ describe('GetFeedTodayController', () => {
 
     expect(params).toHaveBeenCalledWith(nasaApiResponse)
   })
-  it('should expected to call senTelegram with error message', async () => {
-    const { sendToTelegramSut, sut } = makeSut()
-    const params = jest.spyOn(sendToTelegramSut, 'sendToTelegram')
-    await sut.handle({
-      body: {
-        message: {
-          chat: { id: makePayload.body.message.chat.id },
-          text: 'Olá'
-        }
-      }
-    })
-
-    const telegramParams = {
-      chatId: makePayload.body.message.chat.id,
-      payload: [
-        TELEGRAM_ENUM.ERROR_MESSAGE
-      ]
-    }
-
-    expect(params).toHaveBeenCalledWith(telegramParams)
-  })
 
   it('expected to call telegramApi and send meteor information', async () => {
     const { sendToTelegramSut, formatNasaToTelegramSut, sut } = makeSut()

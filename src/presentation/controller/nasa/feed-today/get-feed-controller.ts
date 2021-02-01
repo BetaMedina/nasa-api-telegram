@@ -11,29 +11,20 @@ export class GetFeedTodayController implements Controller {
   async handle (httpRequest:HttpRequest):Promise<HttpResponse> {
     try {
       const { body: { message } } = httpRequest
-      console.log(message)
-      if (message.text === TELEGRAM_ENUM.CLIENT_MESSAGE) {
-        const feedToday = await this.feed.getFeedToday()
+
+      const feedToday = await this.feed.getFeedToday()
       
-        if (!feedToday.length) {
-          await this.sendToTelegram.sendToTelegram({
-            payload: [TELEGRAM_ENUM.EMPTY_MESSAGE],
-            chatId: message.chat.id 
-          })
-          return success('Message has been send')
-        } 
-
-        const nasaFormatted = await this.formatToTelegram.format(feedToday)
-        await this.sendToTelegram.sendToTelegram({ payload: nasaFormatted, chatId: message.chat.id })
-
+      if (!feedToday.length) {
+        await this.sendToTelegram.sendToTelegram({
+          payload: [TELEGRAM_ENUM.EMPTY_MESSAGE],
+          chatId: message.chat.id 
+        })
         return success('Message has been send')
-      }
-      
-      await this.sendToTelegram.sendToTelegram({
-        payload: [TELEGRAM_ENUM.ERROR_MESSAGE],
-        chatId: message.chat.id 
-      })
-      
+      } 
+
+      const nasaFormatted = await this.formatToTelegram.format(feedToday)
+      await this.sendToTelegram.sendToTelegram({ payload: nasaFormatted, chatId: message.chat.id })
+
       return success('Message has been send')
     } catch (err) {
       return serverError(err)
