@@ -8,13 +8,13 @@ export class SendToTelegram implements ISendToTelegram {
   constructor (private readonly requestAdapter: IPostRequestAdapter) {}
 
   async sendToTelegram (payload:ISendToTelegram.payload):Promise<void> {
-    console.log(process.env.LAMBDA_URL)
-    const response = await this.requestAdapter.post(NASA_FEED.LAMBDA_URL, {
-      nasaData: payload.payload,
-      chatId: payload.chatId
-    })
-    if (response.status !== 200) {
-      throw new BadRequestError(`Lambda return status ${response.status}`)
-    }
+    await Promise.all(
+      payload.payload.map(async res => {
+        await this.requestAdapter.post(NASA_FEED.LAMBDA_URL, {
+          text: res,
+          chat_id: payload.chatId
+        })
+      })
+    )
   }
 }
