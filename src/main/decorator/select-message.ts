@@ -2,7 +2,7 @@ import { TELEGRAM_ENUM } from '../../presentation/helper/enum/payload.enum'
 import { Controller, HttpRequest } from '../../presentation/contract'
 import { makeFeedTodayController } from '../factories/controllers/feed-today/feed-factory'
 import { makeScheduleController } from '../factories/controllers/schedule-confirm/create-schedule'
-import { badRequest, serverError } from '../../presentation/helper'
+import { serverError, success } from '../../presentation/helper'
 import { ISendToTelegram } from '../../presentation/schedule'
 
 export class MessageDecorator implements Controller {
@@ -24,9 +24,10 @@ export class MessageDecorator implements Controller {
           payload: [TELEGRAM_ENUM.ERROR_MESSAGE],
           chatId: message.chat.id 
         })
-        return badRequest(new Error('Message invalid'))
+        return success('Message invalid')
       }
-      return messageController[message.text].handle(httpRequest)
+      await messageController[message.text].handle(httpRequest)
+      return success('Message invalid')
     } catch (err) {
       console.log(err)
       return serverError(err)
