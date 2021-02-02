@@ -14,7 +14,6 @@ export class MessageDecorator implements Controller {
   async handle (httpRequest:HttpRequest):Promise<any> {
     try {
       const { message } = httpRequest.body
-      console.log(message)
       const messageController = {
         [TELEGRAM_ENUM.CLIENT_MESSAGE]: makeFeedTodayController(),
         [TELEGRAM_ENUM.CLIENT_CONFIRM_NOTIFY]: makeScheduleController()

@@ -5,8 +5,6 @@ import { PostToTelegramFactory } from '../use-cases/nasa-to-telegram/post-to-tel
 import { makeScheduleDecorator } from '../decorators/schedule-decorator-factory'
 
 export const makeSchedule = () => {
-  console.log('Funcionando')
-
   const format = new FormatNasaToTelegram()
   const nasaSchedule = new NasaSchedule(GetFeedFactory(), format, PostToTelegramFactory())
   return makeScheduleDecorator(nasaSchedule).handle()
