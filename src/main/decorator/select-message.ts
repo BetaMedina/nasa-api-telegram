@@ -16,10 +16,10 @@ export class MessageDecorator implements Controller {
       const { message } = httpRequest.body
       console.log(message)
       const messageController = {
-        [TELEGRAM_ENUM.CLIENT_MESSAGE]: makeFeedTodayController().handle(httpRequest),
-        [TELEGRAM_ENUM.CLIENT_CONFIRM_NOTIFY]: makeScheduleController().handle(httpRequest)
+        [TELEGRAM_ENUM.CLIENT_MESSAGE]: makeFeedTodayController(),
+        [TELEGRAM_ENUM.CLIENT_CONFIRM_NOTIFY]: makeScheduleController()
       }
-      const httpResponse = await messageController[message.text]
+      const httpResponse = await messageController[message.text].handle(httpRequest)
       if (!httpResponse) {
         await this.sendToTelegram.sendToTelegram({
           payload: [TELEGRAM_ENUM.ERROR_MESSAGE],
