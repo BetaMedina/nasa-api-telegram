@@ -1,5 +1,3 @@
-export * from '../../../../domain/use-cases/format-nasa-to-telegram'
-export * from '../../../../domain/use-cases/request-feed'
 export * from '../../../../domain/use-cases/send-telegram-api'
 export * from '../../../../presentation/contract'
 export * from '../../../../presentation/helper'

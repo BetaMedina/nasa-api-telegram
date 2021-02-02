@@ -4,7 +4,7 @@ import { serverError, success } from '../../../../src/presentation/helper'
 import { FormatNasaToTelegramStub } from '../../mock/use-cases/format-nasa-to-telegram'
 import { MakeRequestStub } from '../../mock/use-cases/request-feed'
 import { SendToTelegramStub } from '../../mock/use-cases/send-to-telegram'
-import { TELEGRAM_ENUM } from '../../../../src/presentation/controller/nasa/feed-today/enum/payload.enum'
+import { TELEGRAM_ENUM } from '../../../../src/presentation/helper/enum/payload.enum'
 import faker from 'faker'
 
 const makeSut = () => {
@@ -84,9 +84,16 @@ describe('GetFeedTodayController', () => {
       ]
     }
 
+    const telegramParams2 = {
+      chatId: makePayload.body.message.chat.id,
+      payload: [
+        TELEGRAM_ENUM.CRON_MESSAGE
+      ]
+    }
+
     expect(telegramParams.chatId).toEqual(sendToTelegramSut.chatId)
-    expect(telegramParams.payload).toEqual(sendToTelegramSut.payload)
     expect(params).toHaveBeenCalledWith(telegramParams)
+    expect(params).toHaveBeenCalledWith(telegramParams2)
   })
 
   it('expected to return 500 when sendToTelegram throws', async () => {

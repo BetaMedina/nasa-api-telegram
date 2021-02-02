@@ -1,4 +1,4 @@
-export type INasaEntity = {
+export interface INasaEntity {
   name:String,
   close_approach_data:{
     miss_distance:{

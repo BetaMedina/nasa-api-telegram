@@ -1,8 +1,11 @@
-import server from './config/app'
 import dotenv from 'dotenv'
+import { MongoHelper } from '@/infra/db/mongo/helper/mongo-helper'
 
 dotenv.config()
 
-server.listen(process.env.PORT || 3000, () => {
-  console.log('Server is running on port 3333 ')
+MongoHelper.connect(process.env.MONGO_DB).then(async () => {
+  const app = (await import('./config/app')).default
+  app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server is runing on port ${process.env.PORT || 3000}`)
+  })
 })

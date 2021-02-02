@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { Controller, HttpRequest } from '../../presentation/contract'
 
-export const adaptRoute = (controller:Controller) => {
+export const adaptRoute = (controller:any) => {
   return async (req:Request, res:Response) => {
     const httpRequest:HttpRequest = {
       body: req.body,
@@ -9,6 +9,7 @@ export const adaptRoute = (controller:Controller) => {
       headers: req.headers
     }
     const httpResponse = await controller.handle(httpRequest)
+    console.log(httpResponse)
     if (httpResponse.statusCode === 200) {
       return res.status(httpResponse.statusCode).json(httpResponse.data)
     }
