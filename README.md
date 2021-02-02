@@ -26,6 +26,7 @@
 - Utilize o .env-example para preenchimento de suas envs
 - O mongodb utilizado está no servidor do atlas, logo, a latencia do projeto pode estar relativamente alta.
 - PR'S são sempre bem vindos
+- Evite Middle Man
 
 
 # Nasa - Telegram - BOT
