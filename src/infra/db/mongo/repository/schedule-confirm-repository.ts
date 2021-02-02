@@ -1,7 +1,7 @@
 import { MongoHelper } from '../helper/mongo-helper'
 import { ISaveScheduleRepository } from '../../../../data/contract/schedule-confirm/save-schedule'
-import { IGetAllSchedules } from '@/domain/use-cases/get-all-schedules'
-import { ISchedule } from '@/domain/entitys/schedule-entity'
+import { IGetAllSchedules } from '../../../../domain/use-cases/get-all-schedules'
+import { ISchedule } from '../../../../domain/entitys/schedule-entity'
 
 export class ScheduleRepository implements ISaveScheduleRepository, IGetAllSchedules {
   async save (id:Number): Promise<void> {

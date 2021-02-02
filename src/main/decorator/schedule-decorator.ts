@@ -1,8 +1,8 @@
 
-import { Controller, HttpRequest, HttpResponse } from '../../presentation/contract'
+import { Controller, HttpResponse } from '../../presentation/contract'
 import { serverError, success } from '../../presentation/helper'
 import { IGetAllSchedulesRepository } from '../../data/contract/schedule-confirm/get-schedules'
-import { Schedule } from '@/presentation/schedule'
+import { Schedule } from '../../presentation/schedule'
 
 export class ScheduleDecorator implements Controller {
   constructor (

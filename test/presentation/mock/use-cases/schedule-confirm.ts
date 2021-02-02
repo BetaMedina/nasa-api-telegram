@@ -1,4 +1,4 @@
-import { IScheduleConfirm } from '@/domain/use-cases/schedule-confirm'
+import { IScheduleConfirm } from '../../../domain/use-cases/schedule-confirm'
 
 export class ScheduleCreateStub implements IScheduleConfirm {
   id:Number

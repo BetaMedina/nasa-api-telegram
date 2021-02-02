@@ -2,7 +2,7 @@ import { TELEGRAM_ENUM } from '../../presentation/helper/enum/payload.enum'
 import { Controller, HttpRequest } from '../../presentation/contract'
 import { makeFeedTodayController } from '../factories/controllers/feed-today/feed-factory'
 import { makeScheduleController } from '../factories/controllers/schedule-confirm/create-schedule'
-import { badRequest, serverError } from '@/presentation/helper'
+import { badRequest, serverError } from '../../presentation/helper'
 import { ISendToTelegram } from '../../presentation/schedule'
 
 export class MessageDecorator implements Controller {

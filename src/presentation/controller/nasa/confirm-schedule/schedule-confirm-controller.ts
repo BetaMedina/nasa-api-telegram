@@ -1,4 +1,4 @@
-import { IScheduleConfirm } from '@/domain/use-cases/schedule-confirm'
+import { IScheduleConfirm } from '../../../../domain/use-cases/schedule-confirm'
 import { ISendToTelegram, TELEGRAM_ENUM, Controller, HttpRequest, HttpResponse, serverError, success } from './'
 
 export class ScheduleConfirmController implements Controller {
