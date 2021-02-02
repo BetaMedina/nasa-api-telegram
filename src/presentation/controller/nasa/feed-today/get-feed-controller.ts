@@ -28,6 +28,7 @@ export class GetFeedTodayController implements Controller {
 
       return success('Message has been send')
     } catch (err) {
+      console.log(err)
       return serverError(err)
     }
   }

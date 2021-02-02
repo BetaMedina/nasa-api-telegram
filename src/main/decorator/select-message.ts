@@ -29,6 +29,7 @@ export class MessageDecorator implements Controller {
       }
       return httpResponse
     } catch (err) {
+      console.log(err)
       return serverError(err)
     }
   }

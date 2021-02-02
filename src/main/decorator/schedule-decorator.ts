@@ -11,12 +11,9 @@ export class ScheduleDecorator implements Controller {
     
   ) {}
 
-  async handle (httpRequest:HttpRequest):Promise<HttpResponse> {
-    const { body: { message } } = httpRequest
-    console.log(message)
+  async handle ():Promise<HttpResponse> {
     try {
       const getAllSchedules = await this.getMessages.get()
-      console.log(getAllSchedules)
       await Promise.all(
         getAllSchedules.map(async cron => {
           await this.schedule.handle(cron.id)
@@ -24,7 +21,7 @@ export class ScheduleDecorator implements Controller {
       )
       return success('Success operation')
     } catch (err) {
-      console.log(err.message)
+      console.log(err)
       return serverError(err)
     }
   }
