@@ -9,5 +9,5 @@ export const makeSchedule = () => {
 
   const format = new FormatNasaToTelegram()
   const nasaSchedule = new NasaSchedule(GetFeedFactory(), format, PostToTelegramFactory())
-  return makeScheduleDecorator(nasaSchedule)
+  return makeScheduleDecorator(nasaSchedule).handle()
 }
